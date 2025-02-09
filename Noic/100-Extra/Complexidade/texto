@@ -1,0 +1,37 @@
+Complexidade
+
+-> Geralmente 1 segundo para o tempo de execução, equivalente a 10^8 operações simples em um computador.
+
+-> Notações assintóticas:
+
+Forma de calcular o tempo de execução de um programa
+
+-> Notação Big(O) -> Notação assintótica mais comum
+
+Definição formal: f(n) = O(g(n))
+
+Propriedades:
+
+1 -> Se f(n) = O(g(n)), f + g = O(g(n));
+
+2 -> Se f(n) = O(g(n)) e sendo a e b reais, a * f + b * g = O(g(n));
+
+3 -> Se f1(n) = O(g1(n)) e f2(n) = O(g2(n)), então f1 * f2 = O(g1*g2);
+
+Tipos de Complexidade:
+
+O(1) -> Tempo constante
+
+O(log(n)) -> Tempo proporcional ao logaritmo do número
+
+O(sqrt(n)) -> Um algoritmo que cresce como a raiz do próprio n, assim se multiplicamos n por quatro, esse programa demora 2 vezes a mais que antes.
+
+O(n) -> Linear. Exemplo é um loop de 0 até n
+
+O(n*log(n)) -> Ordenações rápidas (quicksort, merge-sort, etc);
+
+O(n²) -> Algoritmos quadráticos (preencher matriz)
+
+O(2^n) -> Algoritmos de força bruta. Normalmente Algoritmos que precisam percorrer todos os subconjuntos de um conjunto de n elementos.
+
+O(n!) -> Força bruta. Exemplo é o caixeiro-viajante por força bruta.

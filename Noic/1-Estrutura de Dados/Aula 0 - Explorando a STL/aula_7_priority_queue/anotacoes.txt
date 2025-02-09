@@ -1,0 +1,23 @@
+Fila de prioridade (priority queue)
+
+----
+
+Elemento mais à frente é sempre o de maior valor
+
+----
+
+Inserção é a mesma de queue
+
+push()
+top() -> acessar o maior elemento da fila
+pop() -> remover um elemento da frente da fila
+
+----
+
+Elemento do topo sendo sempre o menor:
+
+priority_queue<int, vector<int>, greater<int>> fila; -> elementos do topo sempre serão os menores
+
+----
+
+Todas as operações da pilha são O(log N)

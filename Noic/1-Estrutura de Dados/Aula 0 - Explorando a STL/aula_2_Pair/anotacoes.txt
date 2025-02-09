@@ -1,0 +1,17 @@
+Pair
+
+-> Semelhante a struct
+-> Declaração parecida com vector
+
+-> Acessos:
+
+Utiliza-se o comando first e second para acessar seus respectivos elementos.
+
+-> O vector é bastante utilizado em conjunto com o pair
+
+-> È possível utilizar um pair dentro de outro pair -> vide exemplo
+
+-> As comparações de pair, são pair a pair. Portanto, é comparado o primeiro pair e compara-se o segundo pair caso haja empate.
+
+
+-> É possível ordenar os pairs.

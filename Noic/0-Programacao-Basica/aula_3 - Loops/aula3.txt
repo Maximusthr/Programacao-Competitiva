@@ -1,0 +1,28 @@
+Loops
+
+Expressões iguais a linguagem C: x -= y; x += y...
+
+Expressão: x++ (pós incremento) e ++x (pré incremento)
+
+x = 8
+cout << x++ -> Será impresso 8 e depois incrementado para 9;
+cout << ++x --> Será impresso 9 e o valor continua em 9.
+
+Temos:
+While(){} -> Utilizado para quando não se sabe quantas vezes ocorrerá repetições
+
+for(){} -> Sabemos quantas vezes terá repetição.
+-> Sequencia de fibonacii:
+Primeiro trata os valores iniciais e depois faz o for.
+
+Comandos do Loop:
+
+break: Interrompe o código e prossigue para o próximo comando fora do loop.
+continue: Pula o bloco de iteração atual.
+ex: i == 5;
+    continue;
+
+#Ele para nesse bloco e segue para o próximo automaticamente.
+
+Matrizes:
+Loop dentro de loop.

@@ -1,0 +1,30 @@
+Map
+
+----
+
+Semelhante ao set. Cada chave é mapeada com um certo valor especificado.
+Inteiros sempre serão valores, e o outro tipo será dado como uma chave.
+
+----
+
+Inserção:
+
+mapa1.insert(make_pair("chave", valor));
+mapa2["chave"] = 5; -> 5 representa a posição no map.
+
+----
+
+Busca:
+
+Semelhante ao set.
+Utiliza find e usa a lógica do ponteiro
+
+----
+
+Remoção:
+
+Usa-se o erase() e especificar a chave
+
+----
+
+Percorrer um map: Mesma lógica do set

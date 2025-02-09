@@ -1,0 +1,14 @@
+Vetor Dinâmico
+
+--> Suportar operações além do limite usual
+
+Ex: Adicionar ou remover um elemento ao fim do vetor.
+
+
+Uso do const int --> Variável constante imanipulável.
+
+const int MAX = 1000000; 10^6; -> Tamanho máximo mais 1
+int v[MAX]; --> Vetor com tamanho máximo
+
+=====
+Manipule da forma que desejar

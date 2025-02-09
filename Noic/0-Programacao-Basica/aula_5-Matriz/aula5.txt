@@ -1,0 +1,8 @@
+#Matriz
+
+
+Matriz é um vetor de vetores.
+
+Ex: (tipo) nome[i][j];
+Onde i, j correspondem ao tamanho da matriz.
+

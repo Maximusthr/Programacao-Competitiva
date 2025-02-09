@@ -1,0 +1,21 @@
+-> Stack ou Pilha
+
+-> Só é possível inserir ou remover elementos do topo
+
+
+Utiliza-se a biblioteca <stack>
+
+-----
+
+Inserir: push()
+Remover: pop()
+Acessar: top()
+
+-----
+
+Tamanho da pilha: size()
+Vazio ou não: empty() -> retorna bool
+
+-----
+
+Para iterar em uma pilha, você precisa acessar e remover

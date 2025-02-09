@@ -1,0 +1,37 @@
+Vetores
+
+"Muitas variáveis dentro de uma outra"
+
+DECLARAÇÃO: 
+
+tipo nome[tamanho];
+nome[posição]
+
+int custo[10];
+custo[5] = 3;
+cout << custo[50] << endl; // saída: 3.
+========
+
+O tamanho do vetor é sempre um inteiro positivo.
+
+========
+
+Exemplo de questão que é para imprimir a ordem inversa.
+
+int n;
+cin >> n;
+int lista[n];
+
+for (int i = 0; i < n; i++){
+    cin >> lista[i];
+}
+
+for (int i = n - 1; i >= 0; i--){ // usa a métrica do len - i - 1;
+    cout << lista[i] << " ";
+}
+cout << "\n";
+
+========
+Prática recomendada é declarar o vetor fora da main.
+========
+

@@ -1,0 +1,31 @@
+Set 
+
+----
+
+-> Guarda elementos distintos de maneira ordenada
+
+----
+
+Adicionar valores: insert()
+Apagar valores: erase()
+Encontrar valores: find() ---> Retorna o ponteiro para a posição, se não retrona para o t.end();
+
+----
+
+-> Sempre os elementos são ordenados e NUNCA repetidos
+
+----
+
+Outras funções:
+
+begin()
+end()
+empty()
+size()
+clear()
+lower_bound(x)
+upper_bound(x)
+
+----
+
+Para percorrer o set, é necessário o uso de um iterador (lógica de ponteiros aplicada)

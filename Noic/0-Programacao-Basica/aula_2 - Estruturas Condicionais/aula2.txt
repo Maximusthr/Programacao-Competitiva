@@ -1,0 +1,16 @@
+----- Estruturas Condicionais -----
+
+
+Sintaxe igual ao do C
+
+if -> else if -> else
+
+
+Também é possivel utilizar o \n para pular linhas.
+
+Operadores lógicos
+
+
+&& (e)  || (ou)
+
+!(NOT) -> Operador de negação para uma expressão

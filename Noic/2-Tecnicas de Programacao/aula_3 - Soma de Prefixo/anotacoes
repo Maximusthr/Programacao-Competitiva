@@ -1,0 +1,14 @@
+Somas de Prefixo
+
+-------
+
+Motivação inicial: melhorar a complexidade dado um intervalo e sendo necessário percorrer este intervalo de l até r
+
+Basta criar um vetor auxiliar de tamanho n, então soma-se o indíce atual do vetor original + o índice anterior do auxiliar no auxiliar.
+
+------ 
+
+Soma de prefixo em O(1)
+
+Formula: Intervalo = (s[r] - s[l-1]) -> Soma do intervalo total menos a soma do l-1;
+Isto é em O(1)

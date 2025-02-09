@@ -1,0 +1,23 @@
+FILA
+
+-----
+
+-> Inserimos elementos no fim da fila e removemos o elemento mais à frente.
+
+
+-----
+
+biblioteca: <queue>
+
+-----
+
+Inserção e remoção:
+
+push() -> adiciona ao fim da fila
+pop() -> remove o primeiro elemento da fila
+front() -> acessa o primeiro elemento da fila
+
+-----
+
+Para acessar todos os elementos, usar o size() e empty()
+

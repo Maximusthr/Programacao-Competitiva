@@ -1,0 +1,77 @@
+STL (standart template library) compõe o conjunto de bibliotecas padrões do C++
+
+
+Vector
+
+Representa um vetor dinâmico, na qual não é necessário ter um tamanho definido.
+
+
+DECLARAÇÃO
+-> #include <vector> // Dentro da <bits/stdc++.h> compõe todas as bibliotecas.
+-> vector<tipo> nome.
+
+Ex: vector<int> numero.
+
+
+INSERÇÃO
+
+Utiliza-se o comando push_back(valor) para inserir algo no vector.
+
+variavel.push_back(); O(1)
+
+Exemplo:
+vector<int> numero;
+numero.push_back(2);
+numero.push_back(5);
+
+-> Vetor final: {2, 5};
+
+
+ACESSO
+
+Podemos acessar um elemento do vector da mesma forma que um vetor normal n[i];
+Também é possível utilizar o comando size(), que retorna o tamanho do vetor.
+
+OBS: para utilizar o comando size(), é necessário declarar a tipagem.
+ex: (int)numero.size(); -> transforma o size em inteiro.
+
+
+OUTROS COMANDOS
+
+pop_back(): Remove o último elemento do vector. O(1)
+
+erase(): Remove o elemento de uma determinada posição ou intervalo. O(n)
+Ex:
+// v = {1, 9, 5, 3, 7}    
+v.erase(v.begin()+3); // Apaga o elemento da posição v.begin()+3 = 0+3 = 3, ou seja, apaga o elemento v[3] = 3
+// v = {1, 9, 5, 7}
+
+clear(): Remove todos os elementos do vector. O(n)
+
+
+resize(n): Troca o tamanho do vetor para n e pode inserir ou não novos números. O(n)
+Ex: 
+// v = {1, 2, 3, 4, 5}
+v.resize(8); // Muda o tamanho do vector v para 8
+// v = {1, 2, 3, 4, 5, 0, 0, 0}
+
+// v = {1, 2, 3, 4, 5, 0, 0, 0}
+v.resize(12,-1); // Muda o tamanho do vector v para 12 e nas posições novas/vazias insere o número -1
+// v = {1, 2, 3, 4, 5, 0, 0, 0, -1, -1, -1, -1}
+
+
+swap: Trocar a posição dos elementos entre dois vetores de mesmo tipo (pode ser tamanhos diferentes). O(1)
+
+vetor1.swap(vetor2);
+
+
+Ordenar um vetor utilizando o sort. Complexidade: O(n log n)
+É necessário a biblioteca: <algorithm> (biblioteca do sort)
+
+sort(v.begin(), v.end()) -> Ordena do menor para o maior.
+
+Nota: Os outros comandos do vector podem ser encontrados nos links de referência a seguir:
+
+C++ Reference - Vector: https://www.cplusplus.com/reference/vector/vector/
+CPP Reference - Vector: https://en.cppreference.com/w/cpp/container/vector
+Vector in C++ STL: https://www.geeksforgeeks.org/vector-in-cpp-stl/

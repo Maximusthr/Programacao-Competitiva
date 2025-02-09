@@ -1,0 +1,13 @@
+#Ordenação
+
+Tipos de algoritmos:
+
+Selection Sort  O(n²)
+Bubble Sort O(n²)
+
+*São bons algoritmos, para casos de elementos pequenos.
+
+Merge Sort O(n log n) 
+--> Pegar 2 vetores já ordenados e uni-los comparando cada elemento inicial
+
+Quick Sort -> complexidade media O(n log n)

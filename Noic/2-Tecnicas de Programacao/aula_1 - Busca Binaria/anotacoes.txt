@@ -1,0 +1,23 @@
+Busca binária:
+
+Ideia semelhante ao merge sort (partir ao meio).
+
+Possui a lógica de dividir o vetor ao meio e buscar tal elemento nessa divisão.
+Se não encontrarmos, dividimos novamente até acharmos.
+
+Complexidade: log(n)
+
+A ideia de busca binária funciona apenas para um vetor ORDENADO
+
+-----
+Funciona apenas em um vetor ordenado.
+
+Busca binária (pura) -> Encontrar um elemnto
+
+Busca binária (lower bound) -> Encontrar o menor elemento, que seja, maior ou igual dado um determinado valor
+
+Busca binária (upper bound) -> Encontrar o primeiro elemento maior que x.
+
+Busca binária (em resposta) -> Dado um problema, usar a busca binária ao seu favor, de forma que, dada a condição
+                               você resolva o problema.
+

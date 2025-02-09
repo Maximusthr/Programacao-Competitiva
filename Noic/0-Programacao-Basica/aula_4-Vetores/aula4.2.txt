@@ -1,0 +1,38 @@
+Strings
+
+
+"Vetores de caracteres."
+
+-> Necessário importar a biblioteca <string>
+
+Declaração:
+
+string nome;
+string nome = "frase";
+
+Entrada:
+
+cin >> nome;
+
+--> Possível concatenação (com ressalvas):
+
+# string om = "Ola " + "mundo!"; -> ERRADDO
+
+# om += "mundo!"; --> Correto.
+
+-> É possível concatenar uma string com char.
+
+string sobrenome = "Dantas";
+nome += " " + sobrenome; -> Saída: Variavel Dantas
+
+Vetores:
+
+-> É possível utilizar strings da mesma forma que um vetor.
+
+string[2] -> Vai procurar a terceira posição da string em questão.
+
+
+
+FUNÇÕES
+
+.size() --> Descobrir o tamanho de uma string.

@@ -1,0 +1,11 @@
+Guloso:
+
+Tipo de problema em que o programa procura as melhores opções
+
+É necessário o passo-a-passo para que seja atendido o que se pede da melhor forma possível
+
+
+Criterio de ordenação (melhor possível) -> percorre as escolhas -> escolhe as melhores possíveis.
+
+
+Algoritmo Kadane

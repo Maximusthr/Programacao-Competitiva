@@ -1,0 +1,36 @@
+Biblioteca padrão do c++: "bits/stdc++.h"
+
+Chamada padrão no início do código: "using namespace std;"
+-> Utilizada no final da chamada da biblioteca para não precisar indicar os nomes padrões em todas chamadas.
+
+
+A biblioteca de saída é o <iostream>
+E a chamada de saida é o cout.
+Chamada de quebra de linha é o endl.
+
+
+#Exemplo de uso:
+
+cout << 2024 << endl;
+
+
+
+Tipos de variáveis:
+
+int: inteiro;
+double (ou float): números com casas decimais de precisão;
+char: um caractere;
+bool: true ou false.
+
+=======================
+Função de entrada (declaração):
+
+cin >> variavel1 >> variavel2 >> ... >> variaveln;
+
+Imprimir:
+
+cout << variavel1 + variavel2 << endl;
+
+
+-> O código só é parado após as variáveis declaradas sejam preenchidas.
+
