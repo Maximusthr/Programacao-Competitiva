@@ -3,10 +3,10 @@
 using namespace std;
 
 int main(){
+    ios_base::sync_with_stdio(0); cin.tie(NULL);
     int qtd; cin >> qtd;
 
     while(qtd--){
-        ios_base::sync_with_stdio(0); cin.tie(NULL);
         int n, s, m; cin >> n >> s >> m;
         
         vector<int> arr;
@@ -17,7 +17,7 @@ int main(){
             if (i == 0 && a != 0){
                 if (a >= s) ok = true;
             }
-            if (i == n-1 && b != 10){
+            if (i == n-1 && b != m){
                 if (m - b >= s) ok = true;
             }
             arr.push_back(a);
