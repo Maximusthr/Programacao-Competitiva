@@ -14,13 +14,18 @@ int main(){
         
         int m; cin >> m;
 
-        for (int i = 0; i < a; i++){
-            if (i == a-1) {
-                if (a > 1 && m - vet[i] >= vet[i-1]) vet[i] = m-vet[i];
-            }
-            else if (i < a - 1 && m - vet[i] <= vet[i+1]) vet[i] = m - vet[i];
-        }
+        vet[0] = min(vet[0], m - vet[0]);
 
-        cout << (is_sorted(vet.begin(), vet.end()) ? "YES" : "NO") << "\n";
+        bool ok = true;
+        for (int i = 1; i < a; i++){
+            vet[i] = min(vet[i], m - vet[i]);
+            if (vet[i] < vet[i-1]) vet[i] = m-vet[i];
+            if (vet[i] < vet[i-1]) {
+                cout << "NO" << "\n";
+                ok = false;
+                break;
+            }
+        }
+        if (ok) cout << "YES" << "\n";
     }
 }
