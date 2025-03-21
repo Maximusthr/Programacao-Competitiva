@@ -1,0 +1,33 @@
+Two Pointer - Prefix sum - Fatoração
+
+Two pointer -> Duas variáveis que indicam posições no vetor que funcionam no array simultaneamente
+
+Ex: Maior segmento com soma limitada
+
+i = 0 e j = 0
+j vai indo até achar uma soma maior, daí armazena o melhor i e melhor j
+
+Ex: Maior substring sem repetições
+
+Ideia similar, porém precisa saber se o char já está dentro da substring ou não.
+Usar i = 0, j = 0, map<char>, melhor_i e melhor_j.
+
+Se não conseguir adicionar mais um char, incrementa-se o i até ser possível.
+// pode ser utilizado unordened_map (mas cuidado com colisão -> casos de testes extremos)
+Usar Array[26] -> O(1)
+
+
+-> Outros problemas
+Target Sum (Soma de dois elementos em um array ordenado para encontrar um alvo)
+
+Ternary String: Problema da subtring
+Counting Kangaroos is Fun: 
+
+// Soma de Prefixo 
+
+Ideia do Pré-processamento
+
+
+// Fatoração
+
+Crivo de Eratóstenes
