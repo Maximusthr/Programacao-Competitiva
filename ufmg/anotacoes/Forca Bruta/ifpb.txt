@@ -1,0 +1,29 @@
+Aula de Força Bruta (backtracking), Recursividade, Memoização
+
+Alternativas para recursividade
+
+Ex:
+Termial (Fórmula)
+Fatorial (Loop)
+Fibonacci (Loop)
+
+------------------
+
+Força Bruta
+
+"Forçar a solução do problema -> Verifica-se todos os casos possíveis"
+
+Complexidade: O(N!)
+Código do vídeo é O(2^n) -> péssimo
+
+-> Força Bruta é ideal para problemas que envolvam no MÁXIMO n = 15 ou n = 16.
+
+------------------
+
+Memoização
+
+-> Salvar resultados já calculados anteriormente
+
+Ex: 
+Fibonacci com récalculo
+Código do vídeo O (N * X)
