@@ -4,57 +4,43 @@ using namespace std;
 
 int main(){
     ios_base::sync_with_stdio(0); cin.tie(NULL);
+    
     int n, m, d; cin >> n >> m >> d;
-
-    queue<int> c;
-    int teste = 0;
-    for (int i = 0; i < m; i++){
-        int aux; cin >> aux;
-        c.push(aux);
+    
+    vector<int> plat(m+1);
+    int qtd_plat = 0;
+    for (int i = 1; i <= m; i++){
+        cin >> plat[i];
+        qtd_plat += plat[i];
     }
+    
+    vector<int> rio(n+1);
+    int pos = 0;
+    bool ok = false;
 
-    vector<int> rio(n);
-    int elem = (n/m)-1;
-    int num = 1;
-
-    bool ok = true;
-
-    if (d >= n)
-        rio[n-1] = 1;
-    else if (m == 1){
-        elem = n-d-1;
-        for (int i = 0, j = elem; i < c.front(); i++){
-            rio[j] = num;
-            j++;
+    for (int i = 1; i <= m; i++){
+        if (pos + d + qtd_plat > n + 1){
+            for (int j = pos + 1; j < pos + 1 + plat[i]; j++){
+                rio[j] = i;
+            }
+            pos += plat[i];
+            qtd_plat -= plat[i];
         }
-        elem += d+1;
-        if (elem < n) ok = false;
-    }
-    else {
-        while(!c.empty()){
-            for (int i = 0, j = elem; i < c.front(); i++){
-                rio[j] = num;
-                j++;
+        else {
+            for (int j = pos + d; j < pos + d + plat[i]; j++){
+                rio[j] = i;
             }
-            elem += (n/m);
-            if (c.front() > 1) elem += c.front()-1; 
-            
-            if (elem >= n) break;
-
-            c.pop();
-            num++;
-
-            if (c.empty()){
-                if (elem < n) ok = false;
-            }
+            pos += d + plat[i] - 1;
+            qtd_plat -= plat[i];
         }
     }
+
+    if (pos + d >= n+1) ok = true;
 
     if (ok) {
         cout << "YES" << "\n";
-        for (int i = 0; i < n; i++){
-            if (i == n) cout << rio[i];
-            else cout << rio[i] << " ";
+        for (int i = 1; i < n+1; i++){
+            cout << rio[i] << " ";
         }
         cout << "\n";
     }
