@@ -2,39 +2,27 @@
 
 using namespace std;
 
+using ll = long long;
+
 typedef struct{
-    int t;
-    int z;
-    int y;
-}  minutos;
+    ll t;
+    ll z;
+    ll y;
+} temp;
 
-const int MAX = 1e3+1;
-int m, n;
-vector<minutos> b;
-vector<int> qtd(MAX);
-vector<int> total(MAX);
+ll m, n;
+ll t, z, y;
+vector<temp> arr;
+vector<ll> baloes;
 
-// tempo excedente dos baloes
-
-bool ok(int mid){
-    int aux = 0;
-    int baloes = mid;
-    int quantidade = m;
-
-    for (int i = 0; i < b.size(); i++){
-        if (mid > b[i].y && mid/b[i].t > b[i].z) baloes -= b[i].y; // se o tempo for maior que o descanso
-        baloes /= b[i].t;
-        aux += baloes;
-        if (aux >= quantidade) aux = quantidade;
-        qtd[i] = aux;
-
-        quantidade -= aux;
-        if (quantidade <= 0) return true;
-        aux = 0;
-        baloes = mid;
+bool ok (ll valor){
+    // formula
+    ll total = 0;
+    for (int i = 0; i < n; i++){
+        total += valor/(arr[i].t*arr[i].z + arr[i].y) + min((valor % (arr[i].t*arr[i].z+arr[i].y)/arr[i].t), arr[i].z);
     }
 
-    return quantidade <= 0;
+    return total >= m;
 }
 
 int main(){
@@ -43,26 +31,27 @@ int main(){
     cin >> m >> n;
 
     for (int i = 0; i < n; i++){
-        int t, z, y; cin >> t >> z >> y;
-        b.push_back({t, z, y});
+        cin >> t >> z >> y;
+        arr.push_back({t, z, y});
     }
 
-    int l = 0, r = 1e9+1;
+    ll l = 0;
+    ll r = 1e10+1;
     while(l < r){
-        int mid = l + (r-l)/2;
+        ll mid = l + (r-l)/2;
 
-        if (ok(mid)){
-            r = mid;
-            for (int i = 0; i < n; i++){
-                total[i] = qtd[i];
-            }
-        }
+        if (ok(mid)) r = mid;
         else l = mid+1;
     }
 
     cout << r << "\n";
+
+    ll resto = m;
     for (int i = 0; i < n; i++){
-        cout << total[i] << " ";
+        ll cap = r/(arr[i].t*arr[i].z + arr[i].y) + min((r % (arr[i].t*arr[i].z+arr[i].y)/arr[i].t), arr[i].z);
+        ll uso = min(resto, cap);
+        cout << uso << " ";
+        resto -= uso;
     }
     cout << "\n";
 }
