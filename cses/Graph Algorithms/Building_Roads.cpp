@@ -1,5 +1,3 @@
-// WA
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -44,9 +42,9 @@ int main(){
     }
 
     if (sum >= 2){
-        cout << sum << "\n";
-        for (int i = 0; i < (int)index.size(); i++){
-            cout << index[i] << " \n" [i==index.size()-1];
+        cout << sum-1 << "\n";
+        for (int i = 1; i < (int)index.size(); i++){
+            cout << index[i-1] << " " << index[i] << "\n";
         }
     }
     else cout << 0 << "\n";
