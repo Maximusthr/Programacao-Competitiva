@@ -1,0 +1,14 @@
+Outras formas de fazer a busca de '1', se dá na forma:
+
+// ter atenção com overflow
+
+for (int i = 0; i < 31; i++){
+    if (x & (1 << i)) cout << 1; // exemplo
+}
+
+Para os casos de overflow, utilizar LL
+Ex: x & (1LL << i)
+
+
+// para evitar overflow
+if ((x >> i) & 1) cout << 1; // outra abordagem
