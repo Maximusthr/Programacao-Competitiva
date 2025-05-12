@@ -1,0 +1,28 @@
+// distancia utilizando bfs
+
+const int MAX = 1e3+10;
+vector<int> g[MAX];
+vector<int> vis(MAX);
+
+vector<int> dist(MAX, -1);
+
+dist[s] = 0; // distancia da fonte
+void bfs(int u){
+    queue<int> fila;
+    fila.push(u);
+    vis[u] = true;
+    
+    while(!fila.empty()){
+        int v = fila.front();
+        fila.pop();
+
+        for (auto u : g[v]){
+            if (!vis[u]){
+                dist[u] = dist[v]+1;
+                //vis[u] = true;
+                fila.push(u);
+            }
+        }
+    }
+}
+}

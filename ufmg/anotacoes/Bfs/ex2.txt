@@ -1,0 +1,8 @@
+// RECUPERANDO CAMINHOS
+
+vector<int> path;
+if (!vis[v]) return path;
+while(pai[v] != v){
+    v = pai[v];
+    path.push_back(v);
+}
