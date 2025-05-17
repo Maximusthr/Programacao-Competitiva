@@ -1,0 +1,27 @@
+// Gerando conjunto das partes com recursão
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// função recursiva -> retorna o conjunto das partes
+
+int n;
+vector<int> subset;
+
+void search(int k){
+    if (k == n){
+        // return
+    }
+    else {
+        search(k+1);
+        subset.push_back(k);
+        search(k+1);
+        subset.pop_back();
+    }
+}
+
+// int main() {
+//     ios_base::sync_with_stdio(0); cin.tie(NULL);
+
+// }
