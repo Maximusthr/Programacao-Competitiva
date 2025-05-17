@@ -1,0 +1,39 @@
+// Permutação com recursão
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// {0, 1, 2}
+
+int n;
+vector<int> permutation;
+vector<bool> chosen(n);
+
+void search(){
+    if (permutation.size() == n){
+        // return
+    }
+    else {
+        for (int i = 0; i < n; i++){
+            if (chosen[i]) continue;
+            chosen[i] = true;
+            permutation.push_back(i);
+            search();
+            chosen[i] = false;
+            permutation.pop_back();
+        }
+    }
+}
+
+// Função da biblioteca do c++
+
+vector<int> permutation;
+
+for (int i = 0; i < n; i++){
+    permutation.push_back(i);
+}
+
+do {
+    // retorna a Permutação
+} while (next_permutation(permutation.begin(), permutation.end()));
