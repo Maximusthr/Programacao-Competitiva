@@ -1,0 +1,22 @@
+Literalmente remove o menor elemento do array e coloca em outro de forma ordenada
+
+O(n²)
+
+vector<int> sort_by_selection(vector<int> v){
+    vector<int> sorted;
+    while(v.size()){
+        // encontrando o menor elemento
+
+        int index_min = 0;
+        for (int i = 1; i < (Int)v.size(); i++){
+            if (v[i] < v[index_min]){
+                index_min = i;
+            }
+        }
+
+        sorted.push_back(v[index_min]);
+        v.erase(v.begin() + index_min);
+    }
+
+    return sorted;
+}

@@ -1,0 +1,9 @@
+É necessário criar para uma struct, sua própria função de ordenação
+
+struct P {
+    int x, y;
+    bool operator<(const P &ap){
+        if (x != p.x) return x < p.x;
+        return y < p.y;
+    }
+};
