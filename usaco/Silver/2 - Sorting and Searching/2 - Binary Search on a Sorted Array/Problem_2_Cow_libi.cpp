@@ -1,5 +1,3 @@
-// WA - TO-DO
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -8,11 +6,19 @@ const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
 struct dist {
-    ll x, y, t;
+    int x, y, t;
     bool operator< (const dist& other) const {
         return t < other.t;
     }
 };
+
+bool reach(dist g1, dist g2){
+    long long dt = g1.t - g2.t;
+    long long dx = g1.x - g2.x;
+    long long dy = g1.y - g2.y;
+
+    return dt * dt < dx * dx + dy * dy;
+}
 
 int main(){
     ios_base::sync_with_stdio(0); cin.tie(NULL);
@@ -29,29 +35,24 @@ int main(){
 
     int ans = 0;
     for (int i = 0; i < n; i++){
+        bool ok = true;
 
-        ll x = cows[i].x;
-        ll y = cows[i].y;
-        ll t = cows[i].t;
+        auto it = lower_bound(s.begin(), s.end(), cows[i].t, [](const dist &d, int T){
+            return d.t < T;
+        });
 
-        // Caso de ir até o tempo maior
-        auto it = lower_bound(s.begin(), s.end(), cows[i].t, [](const dist& d, ll T){return d.t < T;}) - s.begin();
-        
-        if (it == 0){
-            ll d = abs(s[0].x - x) + abs(s[0].y - y);
-            if (d > s[0].t - t) ans++;
+        if (it != s.end()){
+            if (reach(cows[i], *it)){
+                ok = false;
+            }
         }
-        
-        else if (it == g){
-            ll d = abs(s[g-1].x - x) + abs(s[g-1].y - y);
-            if (d > t - s[g-1].t) ans++;
+        if (it > s.begin()){
+            if (reach(cows[i], *(it-1))){
+                ok = false;
+            }
         }
 
-        else {
-            ll d1 = abs(s[it-1].x - x) + abs(s[it-1].y - y);
-            ll d2 = abs(s[it].x - x) + abs(s[it].y - y);
-            if (d1 > t - s[it-1].t || d2 > s[it].t - t) ans++;
-        }
+        if (!ok) ans++;
     }
 
     cout << ans << "\n";
