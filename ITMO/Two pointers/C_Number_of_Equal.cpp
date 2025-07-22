@@ -12,24 +12,17 @@ int main(){
 
     vector<int> a(n);
     vector<int> b(m);
-
     for (auto &i : a) cin >> i;
     for (auto &i : b) cin >> i;
 
-    int i = 0, j = 0;
-    int pos_i = 0;
-    int ans = 0;
+    map<ll, ll> arr;
+    for (int i = 0; i < n; i++){
+        arr[a[i]]++;
+    }
 
-    while (i < n || j < m){
-        if (i < n && a[i] == b[j]){
-            i++;
-        }
-        else {
-            if (b[j] == a[pos_i]) {
-                ans += i-pos_i;
-                j++;
-            }
-        }
+    ll ans = 0;
+    for (int i = 0; i < m; i++){
+        ans += arr[b[i]];
     }
 
     cout << ans << "\n";
