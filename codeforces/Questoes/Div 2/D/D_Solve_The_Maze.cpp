@@ -6,7 +6,6 @@ const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
 int n, m;
-// const int MAX = 51;
 vector<string> g;
 vector<vector<bool>> vis;
 
@@ -49,7 +48,7 @@ void bfs_B(int u, int v){
     }
 }
 
-bool bfs_G(int u, int v){
+void bfs_fim(int u, int v){
     queue<pair<int, int>> q;
     q.push({u, v});
     while(!q.empty()){
@@ -58,10 +57,6 @@ bool bfs_G(int u, int v){
             vis[c.first][c.second] = true;
         }
         q.pop();
-        
-        if (c.first == n-1 && c.second == m-1){
-            return true;
-        }
 
         for (int i = 0; i < 4; i++){
             int cx = c.first + X[i];
@@ -72,7 +67,6 @@ bool bfs_G(int u, int v){
             }
         }
     }   
-    return false;
 }
 
 void solve(){
@@ -93,12 +87,11 @@ void solve(){
         }
     }
 
-    if (!G || !B) {
+    if (!G) {
         cout << "YES" << "\n";
         return;
     }
 
-    // rodar BFS
     for (int i = 0; i < n; i++){
         for (int j = 0; j < m; j++){
             if (!vis[i][j] && g[i][j] == 'B'){
@@ -107,27 +100,25 @@ void solve(){
         }
     }
 
-    if (fim){
+    if (fim || (g[n-1][m-1] == '#')){
         cout << "NO" << "\n";
         return;
     }
 
-    // tampei tudo, verifico se G consegue chegar
+    // Rodo um bfs do (m-1 e n-1) e vejo se todos os G foram visitados
+    vis.assign(n, vector<bool> (m));
+    bfs_fim(n-1, m-1);
     for (int i = 0; i < n; i++){
         for (int j = 0; j < m; j++){
-            if (!vis[i][j] && g[i][j] == 'G'){
-                if (!bfs_G(i, j)){
-                    cout << "NO" << "\n";
-                    return;
-                }
+            if ((g[i][j] == 'G' && !vis[i][j])){
+                cout << "NO" << "\n";
+                return;
             }
-            // vis.assign(false, vector<bool> (false));
-            vis.assign(n, vector<bool> (m));
         }
     }
 
     cout << "YES" << "\n";
-    return;
+    
 }
 
 int main(){
