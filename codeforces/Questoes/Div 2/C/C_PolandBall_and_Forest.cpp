@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
+const int INF = 0x3f3f3f3f;
+const ll LINF = 0x3f3f3f3f3f3f3f3fll;
+
+vector<set<int>> g;
+vector<bool> vis;
+
+void dfs(int u){
+    if (!vis[u]) vis[u] = true;
+
+    for (auto v : g[u]){
+        if (!vis[v]){
+            dfs(v);
+        }
+    }
+}
+
+void solve(){
+    int n; cin >> n;
+
+    g.resize(n);
+    vis.resize(n);
+
+    for (int i = 0; i < n; i++){
+        int x; cin >> x;
+        x--;
+        g[i].insert(x);
+        g[x].insert(i);
+    }
+
+    int ans = 0;
+    for (int i = 0; i < n; i++){
+        if (!vis[i]) {
+            dfs(i);
+            ans++;
+        }
+    }
+
+    cout << ans << "\n";
+
+}   
+
+int main(){
+    ios_base::sync_with_stdio(0); cin.tie(NULL);
+    // int t; cin >> t;
+    // while(t--){
+    solve();
+    // }
+}
