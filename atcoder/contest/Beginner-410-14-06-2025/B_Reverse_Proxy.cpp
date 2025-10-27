@@ -1,5 +1,3 @@
-// WA
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -12,31 +10,28 @@ int main(){
     
     int n, m; cin >> n >> m;
 
-    vector<int> arr(m);
-    for (auto &i : arr) cin >> i;
-
-    vector<int> qtd(n+1);
-    for (int i = 0; i < m; i++){
-        if (arr[i] > 0) qtd[arr[i]]++;
-    }
+    vector<int> box(n+1);
+    vector<int> ans;
 
     for (int i = 0; i < m; i++){
-        if (arr[i] == 0) {
-            int menor = INF;
-            int pos = -1;
+        int x; cin >> x;
+        if (x > 0) {
+            box[x]++;
+            ans.push_back(x);
+        }
+        else {
+            pair<int, int> pos = {0, INF};
             for (int j = 1; j <= n; j++){
-                if (qtd[j] < menor){
-                    menor = qtd[j];
-                    pos = j;
-               }
+                if (box[j] < pos.second) {
+                    pos.first = j;
+                    pos.second = box[j];
+                }
             }
-            qtd[pos]++;
-            arr[i] = pos;
+            box[pos.first]++;
+            ans.push_back(pos.first);
         }
     }
 
-    for (int i = 0; i < m; i++){
-        cout << arr[i] << " ";
-    }
+    for (auto i : ans) cout << i << " ";
     cout << "\n";
 }
