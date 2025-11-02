@@ -1,38 +1,40 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+using ll = long long;
+const int INF = 0x3f3f3f3f;
+const ll LINF = 0x3f3f3f3f3f3f3f3fll;
+
+void solve(){
+    int n, m; cin >> n >> m;
+
+    vector<int> a(n);
+    for (auto &i : a) cin >> i;
+    vector<int> b(m);
+    for (auto &i : b) cin >> i;
+
+    sort(b.begin(), b.end());
+
+    a[0] = min(a[0], b[0]-a[0]);
+
+    for (int i = 1; i < n; i++){
+        auto it = lower_bound(b.begin(), b.end(), a[i] + a[i-1]);
+
+        if (it != b.end()) a[i] = min(a[i], *it - a[i]);
+
+        if (a[i] < a[i-1] && it != b.end()) a[i] = *it - a[i];
+        if (a[i] < a[i-1]){
+            cout << "NO" << "\n";
+            return;
+        }
+    }
+    cout << "YES" << "\n";
+}
 
 int main(){
     ios_base::sync_with_stdio(0); cin.tie(NULL);
     int t; cin >> t;
-
     while(t--){
-        int a, b; cin >> a >> b;
-        
-        vector<long long> vet(a);
-        for (auto &i : vet) cin >> i;
-        
-        vector<long long> seg(b);
-        for (auto &i: seg) cin >> i;
-        sort(seg.begin(), seg.end());
-
-        vet[0] = min(vet[0], seg[0] - vet[0]);
-
-        bool ok = true;
-        for (int i = 1; i < a; i++){
-            auto buscab = upper_bound(seg.begin(), seg.end(), vet[i]);
-
-            long long valor = (buscab == seg.end() ? seg[seg.size()-1] : *buscab);
-
-            vet[i] = min(vet[i], valor - vet[i]);
-
-            if (vet[i] < vet[i-1]) vet[i] = valor - vet[i];
-            if (vet[i] < vet[i-1]) {
-                cout << "NO" << "\n";
-                ok = false;
-                break;
-            }
-        }
-        if (ok) cout << "YES" << "\n";
+        solve();
     }
 }
