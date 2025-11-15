@@ -1,4 +1,4 @@
-// to do later
+// upsolve
 
 #include <bits/stdc++.h>
 
@@ -10,26 +10,29 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 void solve(){
     int n; cin >> n;
 
-    vector<int> arr(n);
-    for (auto &i : arr) cin >> i;
-
-    // n²
-    vector<ll> prefix(n+1);
-    for (int i = 1; i <= n; i++){
-        prefix[i] += prefix[i-1] + arr[i-1];
+    vector<int> arr(n+1);
+    for(int i = 1; i <= n; i++){
+        cin >> arr[i];
     }
 
-    ll ans = accumulate(arr.begin(), arr.end(), 0ll);
-    ll original = ans;
+    vector<ll> prefix(n+1);
+    for (int i = 1; i <= n; i++){
+        prefix[i] += prefix[i-1] + arr[i];
+    }
 
-    for (int i = 0; i < n; i++){
-        for (int j = i; j < n; j++){
-            ll v = (j + i + 2) * (j - i + 1);
+    vector<ll> menor(n+1);
+    for (ll i = 1; i <= n; i++){
+        menor[i] = max(menor[i-1], 1ll * prefix[i-1] + i - i * i);
+    }
 
-            ll pre = prefix[j+1] - prefix[i];
+    vector<ll> maior(n+1);
+    for (ll j = 1; j <= n; j++){
+        maior[j] = 1ll * j * j + j - prefix[j];
+    }
 
-            ans = max(v + original - pre, ans);
-        }
+    ll ans = 0;
+    for (int i = 1; i <= n; i++){
+        ans = max(ans, prefix[n] + maior[i] + menor[i]);
     }
 
     cout << ans << "\n";
