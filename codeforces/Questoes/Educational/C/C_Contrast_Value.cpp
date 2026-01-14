@@ -12,10 +12,8 @@ void solve(){
     for (auto &i : arr) cin >> i;
 
     int ans = unique(arr.begin(), arr.end()) - arr.begin();
-
-    for (int i = 0; i < n; i++){
-        if (i + 2 == n) break;
-
+    n = ans;
+    for (int i = 0; i < n-2; i++){
         if (arr[i+1] > arr[i] && arr[i+2] > arr[i+1]) ans--;
         if (arr[i] > arr[i+1] && arr[i+1] > arr[i+2]) ans--;
     }
