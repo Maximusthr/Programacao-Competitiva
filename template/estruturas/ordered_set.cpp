@@ -15,6 +15,8 @@ tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update
 // order_of_key()
 // find_by_order()
 
+// erase em multiset: order.erase(order.find_by_order(order.order_of_key(sal[idx])));
+
 void solve(){
 
 }   
