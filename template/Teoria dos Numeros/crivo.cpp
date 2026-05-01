@@ -26,7 +26,7 @@ int main(){
 
 
     // primo
-    vector<int> crivo(MAX, true);
+    vector<bool> crivo(MAX, true);
 
     crivo[0] = 0;
     crivo[1] = 0;
