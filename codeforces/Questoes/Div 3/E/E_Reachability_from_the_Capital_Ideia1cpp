@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
+const int INF = 0x3f3f3f3f;
+const ll LINF = 0x3f3f3f3f3f3f3f3fll;
+
+void solve(){
+    int n, m, s; cin >> n >> m >> s;
+
+    s--;
+
+    vector<set<int>> g(n);
+    for (int i = 0; i < m; i++){
+        int x, y; cin >> x >> y;
+        x--, y--;
+        g[x].insert(y);
+    }
+
+    vector<int> extra;
+    int ans = 0;
+
+    for (int i = 0; i < n; i++){
+        if (i == s) continue;
+        if (g[s].count(i)) continue;
+
+        extra.push_back(i);
+        g[s].insert(i);
+        ans++;
+    }
+
+    vector<bool> vis(n);
+
+    auto dfs = [&](auto &&self, int u) -> void {
+        if (!vis[u]) vis[u] = true;
+        for (auto v : g[u]){
+            if (!vis[v]) self(self, v);
+        }
+    };
+
+    for (int i = 0; i < extra.size(); i++){
+        g[s].erase(extra[i]);
+
+        dfs(dfs, s);
+
+        bool ok = true;
+        for (int j = 0; j < n; j++){
+            if (!vis[j]) {
+                ok = false;
+                break;
+            }
+        }
+
+        if (ok) ans--;
+        else g[s].insert(extra[i]);
+        vis.assign(n, false);
+    }
+
+    cout << ans << "\n";
+}
+
+int main(){
+    ios_base::sync_with_stdio(0); cin.tie(NULL);
+    solve();
+}
